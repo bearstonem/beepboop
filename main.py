@@ -87,6 +87,11 @@ async def get_stock():
         # CPUs
         f"Ryzen-=https://www.bestbuy.com/site/promo/ryzen-5000-cpu",
         f"Ryzen-=https://www.newegg.com/p/pl?N=100007671%2050001028%20601359163&t={t}"
+        # Consoles
+        f"PS5-=https://www.bestbuy.com/site/playstation-5/ps5-consoles/pcmcat1587395025973.c?id=pcmcat1587395025973",
+        f"PS5-=https://www.newegg.com/p/N82E16868110292&t={t}",
+        # f"XBOXSERIESX-=https://www.bestbuy.com/site/xbox-series-x-and-s/xbox-series-x-and-s-consoles/pcmcat1586900952752.c?id=pcmcat1586900952752",
+        # f"XBOXSERIESX-=https://www.newegg.com/p/N82E16868105273&t={t}"
     }
     s = AsyncHTMLSession()
 

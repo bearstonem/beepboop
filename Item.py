@@ -39,7 +39,9 @@ class Item:
             "Ryzen 9 5950X": 800,
             "Ryzen 9 5900X": 550,
             "Ryzen 7 5800X": 450,
-            "Ryzen 5 5600X": 300
+            "Ryzen 5 5600X": 300,
+            "PS5" : 499,
+            "XBOXSERIESX" : 400
         }
 
         return founders_price[self.model]
