@@ -80,10 +80,8 @@ async def get_stock():
         f"6800-=https://www.newegg.com/p/pl?N=100007709%20601359427&PageSize=96&t={t}",
         f"6800 XT-={bestbuy_base_url}&{bestbuy_radeon_model_stub.substitute(Model='6800%20XT')}&t={t}",
         f"6800 XT-=https://www.newegg.com/p/pl?N=100007709%20601359422&PageSize=96&t={t}",
-        # f"6900 XT-={bestbuy_base_url}&{bestbuy_radeon_model_stub.substitute(Model='6900%20XT')}&t={t}",
-        # f"6900 XT-=https://www.newegg.com/p/pl?N=100007709%20601359422&PageSize=96&t={t}",
-        f"6900 XT-={amd_base_url}",
-        # f"6900 XT-=https://www.newegg.com/p/pl?N=100007709%20601359422&PageSize=96&t={t}",
+        f"6900 XT-={bestbuy_base_url}&{bestbuy_radeon_model_stub.substitute(Model='6900%20XT')}&t={t}",
+        f"6900 XT-=https://www.newegg.com/p/pl?N=100007709%20601359957&PageSize=96&t={t}",        
         # CPUs
         f"Ryzen-=https://www.bestbuy.com/site/promo/ryzen-5000-cpu",
         f"Ryzen-=https://www.newegg.com/p/pl?N=100007671%2050001028%20601359163&t={t}"
