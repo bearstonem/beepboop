@@ -8,7 +8,7 @@ import random
 import shelve
 import sys
 import time
-import tweepy
+
 import Util
 import webbrowser
 
@@ -30,28 +30,6 @@ def notify_difference(item, original_text):
     print("#######################################")
     print("")
     print("")
-
-    if Util.get_tweepy_enabled():
-        api = API()
-        auth = tweepy.OAuthHandler(api.get_api_key(), api.get_api_secret())
-        auth.set_access_token(api.get_access_token(), api.get_access_token_secret())
-
-        api = tweepy.API(auth)
-
-        tweet = f"{item.get_model()} STOCK ALERT\n\n"
-        tweet += f"{item.get_name()[0:19].rstrip()}...\n"
-        tweet += f"{item.get_price()}\n\n"
-        if "newegg" in item.get_url():
-            tweet += f"Add to Cart: https://secure.newegg.com/Shopping/AddToCart.aspx?ItemList={item.get_item_id()}&Submit=ADD&target=NEWEGGCART\n\n"
-        tweet += f"More Info: {item.get_url()}"
-
-        try:
-            api.update_status(tweet)
-        except tweepy.error.TweepError as te:
-            if te.api_code == 187:
-                # duplicate tweet
-                pass
-
 
 # Build list of URLs to check
 async def get_stock():
@@ -255,27 +233,6 @@ if __name__ == '__main__':
     Util.clear_shelf("items")
     while True:
         item_set = Util.get_dict("items")
-        # for key in item_set:
-        #     item = item_set.get(key)
-        #     isInStock = item.is_in_stock()
-        #     # isInStock = True
-        #     if(isInStock):
-        #         name = item.get_name()                
-        #         itemUrl = item.get_url()
-        #         itemId = item.get_item_id()
-        #         itemModel = item.get_model()
-        #         price = item.get_price()
-        #         # if(price != "Unknown" and (itemModel == "3080" or "6900" in itemModel)):
-        #         if(price != "Unknown"):
-        #             if(itemUrl.startswith("https://www.newegg.com/")):
-        #                 print(f"{name} : {price} : {itemUrl} : {itemId} : {itemModel}")
-        #                 buyLink = f"https://secure.newegg.com/Shopping/AddToCart.aspx?ItemList={itemId}&Submit=ADD&target=NEWEGGCART"
-        #                 print(f"buying: {buyLink}")
-        #                 webbrowser.open_new(buyLink)
-        #             else:
-        #                 print(f"{name} : {price} : {itemUrl} : {itemId} : {itemModel}")
-        #                 webbrowser.open_new(itemUrl)
-                
         try:
             asyncio.run(get_stock())
         except Exception as e:

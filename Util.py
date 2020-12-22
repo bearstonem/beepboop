@@ -3,10 +3,6 @@ import glob
 import random
 import shelve
 
-
-def get_tweepy_enabled():
-    return False
-
 def get_dict(store):
     s = shelve.open(store)
 
